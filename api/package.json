@@ -4,9 +4,26 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test PORT=8081 mocha --ui tdd --exit",
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@xavisoft/joi": "^0.1.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "sequelize": "^6.31.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "axios": "^1.4.0",
+    "casual": "^1.6.2",
+    "chai": "^4.3.7",
+    "chai-http": "^4.3.0",
+    "chai-spies": "^1.0.0",
+    "mocha": "^10.2.0"
+  }
 }
