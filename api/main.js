@@ -6,13 +6,8 @@ require('./env');
 
 const express = require('express');
 const { init: initDB } = require('./db');
-const { init: initAuth } = require('./auth');
-const institutions = require('./institutions');
-const clerks = require('./clerks');
-const resource_types = require('./resource_types');
-const resources = require('./resources');
-const bookings = require('./bookings');
 const morgan = require('morgan');
+const answers = require('./answers');
 
 
 const app = express();
@@ -24,14 +19,10 @@ if (process.env.NODE_ENV !== 'test')
 app.use(express.static(`${__dirname}/static`));
 
 app.use(express.json());
-initAuth(app);
 
 // routes
-app.use('/api/institutions', institutions);
-app.use('/api/clerks', clerks);
-app.use('/api/resource-types', resource_types);
-app.use('/api/resources', resources);
-app.use('/api/bookings', bookings);
+app.use('/api/answers', answers);
+
 
 app.get('*', (req, res) => {
    const indexFile = `${__dirname}/static/index.html`;
