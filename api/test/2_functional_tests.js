@@ -40,6 +40,48 @@ suite('Functional tests', function() {
 
    });
 
+   test('Retrieve answers', async () => {
+
+      const answer = await Answer.create({
+         caption: casual.sentence,
+         sub_question: casual.sentence,
+      });
+
+      const iMax = casual.integer(5, 10);
+
+      for (let i = 0; i < iMax; i++) {
+         await Answer.create({
+            caption: casual.sentence,
+            solution: casual.sentence,
+            question: answer.id,
+         });
+      }
+      
+      const res = await requester
+         .get('/api/answers')
+         .send();
+
+      assert.equal(res.status, 200);
+
+      // check schema
+      assert.isArray(res.body);
+
+      const [ firstAnswer ] = res.body;
+
+      assert.isNumber(firstAnswer.id);
+      assert.isString(firstAnswer.caption);
+      assert.isDefined(firstAnswer.sub_question);
+      assert.isDefined(firstAnswer.solution);
+
+      const [ lastAnswer ] = res.body.slice(-1);
+      assert.isNumber(lastAnswer.question);
+
+      // check db
+      const dbCount = await Answer.count();
+      assert.equal(res.body.length, dbCount);
+
+   });
+
    test("Delete answer from system", async () => {
 
       let answer = await Answer.create({
@@ -55,6 +97,7 @@ suite('Functional tests', function() {
       // check db
       answer = await Answer.findByPk(answer.id);
       assert.isNull(answer);
+
    })
 
    test("Update System", async () => {

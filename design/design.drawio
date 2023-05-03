@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-05-03T21:11:45.535Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="sPMF1Cp8z9u1EsjcOazJ" version="21.2.1" type="device" pages="4">
+<mxfile host="Electron" modified="2023-05-03T22:31:05.149Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.2.1 Chrome/112.0.5615.87 Electron/24.1.2 Safari/537.36" etag="w0AdYTepYrIzm4Rm3Mgt" version="21.2.1" type="device" pages="4">
   <diagram name="Use case" id="ojdMyibVmFkkTvFEF-kD">
     <mxGraphModel dx="1306" dy="894" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -163,7 +163,7 @@
         <mxCell id="kEJbsJdlhVnZtS6eYiPH-22" value="" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.browserWindow;rSize=0;strokeColor=#666666;strokeColor2=#008cff;strokeColor3=#c4c4c4;mainText=,;recursiveResize=0;" vertex="1" parent="1">
           <mxGeometry x="80" y="80" width="1100" height="690" as="geometry" />
         </mxCell>
-        <mxCell id="kEJbsJdlhVnZtS6eYiPH-23" value="Dashboard" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;whiteSpace=wrap;" vertex="1" parent="kEJbsJdlhVnZtS6eYiPH-22">
+        <mxCell id="kEJbsJdlhVnZtS6eYiPH-23" value="Guide" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;fontSize=17;fontColor=#666666;align=left;whiteSpace=wrap;" vertex="1" parent="kEJbsJdlhVnZtS6eYiPH-22">
           <mxGeometry x="60" y="12" width="110" height="26" as="geometry" />
         </mxCell>
         <mxCell id="kEJbsJdlhVnZtS6eYiPH-24" value="https://www.draw.io" style="strokeWidth=1;shadow=0;dashed=0;align=center;html=1;shape=mxgraph.mockup.containers.anchor;rSize=0;fontSize=17;fontColor=#666666;align=left;" vertex="1" parent="kEJbsJdlhVnZtS6eYiPH-22">

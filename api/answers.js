@@ -30,6 +30,15 @@ answers.post('/', async (req, res) => {
    }
 })
 
+answers.get('/', async (req, res) => {
+   try {
+      const answers = await Answer.findAll();
+      res.send(answers);
+   } catch (err) {
+      status_500(err, res);
+   }
+})
+
 answers.delete('/:id', async (req, res) => {
    try {
       await Answer.destroy({ where: { id: req.params.id }});

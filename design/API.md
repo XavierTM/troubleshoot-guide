@@ -11,6 +11,22 @@
 }
 ```
 
+## Retrieve answers
+**GET** `/api/answers`
+**expects**: 
+```js
+[
+   {
+      id: String,
+      caption: String,
+      sub_question: String,
+      solution: String,
+      question: Number,
+   },
+   ...
+]
+```
+
 ## Remove answer
 **DELETE** `/api/answers/:id`
 
