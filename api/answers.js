@@ -13,7 +13,7 @@ answers.post('/', async (req, res) => {
       // validation
       const schema = {
          caption: Joi.string().required(),
-         question: Joi.number().integer(),
+         question: Joi.number().integer().allow(null),
       }
 
       const error = Joi.getError(req.body, schema);
@@ -55,8 +55,8 @@ answers.patch('/:id', async (req, res) => {
       const schema = {
          body: Joi.object({
             caption: Joi.string(),
-            sub_question: Joi.string(),
-            solution: Joi.string(),
+            sub_question: Joi.string().allow(null),
+            solution: Joi.string().allow(null),
          }).min(1)
       }
 
@@ -66,6 +66,9 @@ answers.patch('/:id', async (req, res) => {
 
       // save changes to db
       await Answer.update(req.body, { where: { id: req.params.id }});
+
+      if (req.body.sub_question === null)
+         await Answer.destroy({  where: { question: req.params.id } });
 
       res.send();
 
