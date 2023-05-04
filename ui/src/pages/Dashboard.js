@@ -8,6 +8,7 @@ import Answer from '../components/Answer';
 import AddIcon from '@mui/icons-material/Add';
 import AnswerEditor from "../components/AnswerEditor";
 import LogoutIcon from '@mui/icons-material/Lock';
+import { Fab } from "@mui/material";
 
 
 export default class Dashboard extends Page {
@@ -173,7 +174,7 @@ export default class Dashboard extends Page {
       if (!this.state.answersFetched) {
          return <div className="vh-align fill-container">
             <div className="max-w-[300px]">
-               <p className="text-xl text-gray-600">Failed to load configurations.</p>
+               <p className="text-xl text-gray-600">Failed to load responses.</p>
                <Button onClick={this.fetchAnswers}>
                   RETRY
                </Button>
@@ -211,12 +212,15 @@ export default class Dashboard extends Page {
          }}
       >
          <div className="p-4">
-            <h1 className="text-gray-500 text-3xl">
-               What problem are you facing?
 
-               <Button onClick={this.addAnswer} variant="contained" size="small" startIcon={<AddIcon />}>
-                  ADD
-               </Button>
+            <h1 className="text-gray-500 text-3xl">DASHBOARD</h1>
+
+            <h2 className="text-xl">
+               RESPONSES
+
+               <Fab onClick={this.addAnswer} size="small" className="ml-3" color="primary">
+                  <AddIcon />
+               </Fab>
 
                <AnswerEditor
                   mode={this.state.answerEditorMode}
@@ -225,7 +229,7 @@ export default class Dashboard extends Page {
                   close={this.closeAnswerEditor}
                />
 
-            </h1>
+            </h2>
             {answersJSX}
          </div>
 
