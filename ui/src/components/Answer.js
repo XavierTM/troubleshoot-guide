@@ -82,6 +82,13 @@ export default class Answer extends Component {
    }
 
    deleteSolution = async () => {
+
+      const question = `Do you want to delete the solution "${this.props.solution}"?`
+
+      const confirmation = await requestConfirmation({ question });
+      if (!confirmation)
+         return;
+
       try {
 
          const solution = null;
@@ -119,6 +126,13 @@ export default class Answer extends Component {
    }
 
    deleteFollowupQuestion = async () => {
+
+      const question = `Do you want to delete the question "${this.props.sub_question}"?`
+
+      const confirmation = await requestConfirmation({ question });
+      if (!confirmation)
+         return;
+
       try {
 
          const sub_question = null;
