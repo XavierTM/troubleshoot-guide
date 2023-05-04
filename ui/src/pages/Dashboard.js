@@ -7,6 +7,7 @@ import Button from '@mui/material/Button'
 import Answer from '../components/Answer';
 import AddIcon from '@mui/icons-material/Add';
 import AnswerEditor from "../components/AnswerEditor";
+import LogoutIcon from '@mui/icons-material/Lock';
 
 
 export default class Dashboard extends Page {
@@ -17,6 +18,11 @@ export default class Dashboard extends Page {
       answerEditorMode: null,
       newAnswerQuestionId: null,
       answerBeingEdited: null,
+   }
+
+   logout = () => {
+      window.App.authenticated = false;
+      window.App.redirect('/');
    }
 
    updateState = (update={}) => {
@@ -198,23 +204,43 @@ export default class Dashboard extends Page {
          </p>
       }
 
-      return <div className="p-4">
-         <h1 className="text-gray-500 text-3xl">
-            What problem are you facing?
+      return <div 
+         className="grid fill-container"
+         style={{
+            gridTemplateRows: 'auto 70px',
+         }}
+      >
+         <div className="p-4">
+            <h1 className="text-gray-500 text-3xl">
+               What problem are you facing?
 
-            <Button onClick={this.addAnswer} variant="contained" size="small" startIcon={<AddIcon />}>
-               ADD
+               <Button onClick={this.addAnswer} variant="contained" size="small" startIcon={<AddIcon />}>
+                  ADD
+               </Button>
+
+               <AnswerEditor
+                  mode={this.state.answerEditorMode}
+                  data={this.state.answerBeingEdited}
+                  questionId={this.state.newAnswerQuestionId}
+                  close={this.closeAnswerEditor}
+               />
+
+            </h1>
+            {answersJSX}
+         </div>
+
+         <div
+            style={{
+               borderTop: '1px #ccc solid',
+               justifyContent: 'right',
+            }}
+            className="v-align pr-3"
+         >
+
+            <Button onClick={this.logout} startIcon={<LogoutIcon />}>
+               LOGOUT
             </Button>
-
-            <AnswerEditor
-               mode={this.state.answerEditorMode}
-               data={this.state.answerBeingEdited}
-               questionId={this.state.newAnswerQuestionId}
-               close={this.closeAnswerEditor}
-            />
-
-         </h1>
-         {answersJSX}
+         </div>
       </div>
    }
 }

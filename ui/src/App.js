@@ -26,10 +26,10 @@ function App() {
 
       <Navbar />
 
-      <Route path="/" component={Login} />
+      <Route path="/" component={Guide} />
+      <Route path="/guide" component={Guide} />
       <Route path="/login" component={Login} />
       <Route path="/dashboard" component={Dashboard} />
-      <Route path="/guide" component={Guide} />
 
     </AppWrapper>
   );

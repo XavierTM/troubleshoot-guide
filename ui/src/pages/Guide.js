@@ -7,6 +7,7 @@ import request from "../request";
 import ArrowIcon from '@mui/icons-material/ArrowRightAlt';
 import BackIcon from '@mui/icons-material/ArrowBack';
 import HomeIcon from '@mui/icons-material/Home';
+import LoginIcon from '@mui/icons-material/VpnKey';
 
 
 const DEFAULT_QUESTION = 'What do you want help with?'
@@ -35,6 +36,10 @@ export default class Guide extends Page {
          current: this.state.current.previous
       });
    } 
+
+   goToLogin = () => {
+      window.App.redirect('/login');
+   }
 
    fetchAnswers = async () => {
 
@@ -119,7 +124,7 @@ export default class Guide extends Page {
             });
          } else {
             answersJSX = <p className="text-gray-600 text-xl">
-               No responses added by the admin.
+               No responses added on the system.
             </p>
          }
 
@@ -164,6 +169,10 @@ export default class Guide extends Page {
 
             <Button onClick={this.goToHome} startIcon={<HomeIcon />} disabled={footerButtonsDisabled}>
                HOME
+            </Button>
+
+            <Button onClick={this.goToLogin} startIcon={<LoginIcon />}>
+               LOGIN
             </Button>
          </div>
       </div>
