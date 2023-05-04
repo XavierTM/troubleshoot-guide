@@ -2,7 +2,7 @@ import swal from "sweetalert";
 import Page from "./Page";
 import { hideLoading, showLoading } from '../loading';
 import request from '../request'
-import { flattenAnswers, generateAnswerTree } from "../utils";
+import { delay, flattenAnswers, generateAnswerTree } from "../utils";
 import Button from '@mui/material/Button'
 import Answer from '../components/Answer';
 import AddIcon from '@mui/icons-material/Add';
@@ -149,11 +149,12 @@ export default class Dashboard extends Page {
    }
 
 
-   componentDidMount() {
+   async componentDidMount() {
 
       super.componentDidMount();
 
       if (!window.App.authenticated) {
+         await delay(100);
          return window.App.redirect('/login');
       }
 
